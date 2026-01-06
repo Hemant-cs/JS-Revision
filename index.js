@@ -193,3 +193,16 @@ where are they?
     its will be manage a sperate clouser execution context and maintances variable there
         e.g. heap
 */
+
+for (var i = 1; i <= 3; i++) {
+    console.log(i);
+  setTimeout(() => console.log(i), 1000);
+}
+// Output: 4, 4, 4
+
+for (var i = 1; i <= 3; i++) {
+  (function(x) {
+    setTimeout(() => console.log(x), 1000);
+  })(i);
+}
+// Output: 1, 2, 3
